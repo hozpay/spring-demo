@@ -131,10 +131,6 @@
 											</fileSets>
 										</inline>
 									</assembly>
-									<tags>
-										<tag>${project.version}</tag>
-										<tag>latest</tag>
-									</tags>
 								</build>
 							</image>
 						</images>
@@ -178,10 +174,6 @@
 												<descriptorRef>artifact</descriptorRef>
 											</assembly>
 										</assemblies>
-										<tags>
-											<tag>${project.version}</tag>
-											<tag>latest</tag>
-										</tags>
 									</build>
 								</image>
 							</images>
