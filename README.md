@@ -11,7 +11,7 @@ The application can be easily packaged into a Docker container.
 The application has three endpoints:
 
 1. **/greeting** - Returns a greeting message. You can pass a name as a query parameter to customize the greeting.
-2. **/user** - Returns a list of user names.
+2. **/user** - Returns a list of usernames.
 3. **/userid** - Returns a list of user IDs.
 
 ## Getting Started
