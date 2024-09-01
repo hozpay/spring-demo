@@ -10,7 +10,7 @@ FROM openjdk:17-oracle
 LABEL org.medium.image.authors="tauseef"
 
 # Define default environment variables
-ENV APP_HOME=/opt/medium/containerize
+ENV APP_HOME=/opt/medium/
 # Name of the executable artifact
 ENV ARTIFACT_NAME=containerize-*.jar
 # Java debug port

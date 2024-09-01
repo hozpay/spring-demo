@@ -13,6 +13,3 @@ mkdir -p tauseef
 exec java $JAVA_OPTS \
        -Djava.security.egd=file:/dev/./urandom -jar \
        ${APP_HOME}/$ARTIFACT_NAME
-
-# keep the container running until interrupted
-sleep infinity
