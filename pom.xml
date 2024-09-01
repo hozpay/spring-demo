@@ -129,6 +129,14 @@
 													<fileMode>755</fileMode>
 												</fileSet>
 												<fileSet>
+													<directory>${project.basedir}/src/main/docker</directory>
+													<outputDirectory>/</outputDirectory>
+													<includes>
+														<include>docker-entrypoint-k8s.sh</include>
+													</includes>
+													<fileMode>755</fileMode>
+												</fileSet>
+												<fileSet>
 													<directory>${project.basedir}/target</directory>
 													<outputDirectory>/</outputDirectory>
 													<includes>
