@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example.medium</groupId>
 	<artifactId>containerize</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.5-SNAPSHOT</version>
 	<name>containerize</name>
 	<description>Demo project to containerize Spring Boot Application</description>
 	<properties>
