@@ -12,4 +12,5 @@ public class ConfigurationManagement {
     private int value2;
     private String value3;
     private String value4;
+    private int cpu;
 }
