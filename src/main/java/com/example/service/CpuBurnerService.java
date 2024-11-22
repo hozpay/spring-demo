@@ -1,10 +1,13 @@
 package com.example.service;
 
+import com.example.config.CpuGreaterThanZeroCondition;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
+@Conditional(CpuGreaterThanZeroCondition.class)
 public class CpuBurnerService {
 
     /**
