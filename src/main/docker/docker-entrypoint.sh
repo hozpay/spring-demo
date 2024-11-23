@@ -7,7 +7,6 @@ if [ "$DEBUG" = true ]; then
   printf "Running the application in debug mode\n"
   JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:$DEBUG_PORT"
 fi
-mkdir -p tauseef
 # Enables application to take PID 1 and receive SIGTERM sent by Docker stop command.
 # See here https://docs.docker.com/engine/reference/builder/#/entrypoint
 exec java $JAVA_OPTS \

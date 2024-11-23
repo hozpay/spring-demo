@@ -15,11 +15,6 @@ import java.util.Map;
 public class CacheController {
     private static final String CACHE_DIR = "cache-data";
 
-    static {
-        // Ensure the directory exists
-        new File(CACHE_DIR).mkdirs();
-    }
-
     @PostMapping
     public Map<String, String> cacheData(@RequestParam String key, @RequestParam String value) {
 
