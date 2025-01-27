@@ -1,0 +1,9 @@
+com/example/medium/containerize/ContainerizeApplicationTests.class
+repository/Containers.class
+container/MongoContainer.class
+Configuration/TestNetwork.class
+Configuration/MongoContainerConfiguration.class
+repository/MongoRepository.class
+repository/MongoRepositoryIT.class
+com/example/constants/SeasonTest.class
+util/EmployeeShallowCopyTest.class

@@ -41,4 +41,29 @@ public class RestApplication {
         return List.of(125603, 121, config.getValue1(), config.getValue2());
     }
 
+    @GetMapping("/delay")
+    public String delay(@RequestParam(value = "sec", defaultValue = "5") int sec) {
+
+        if ( sec > 301 ) {
+            log.info("Requested delay is: {} seconds but it is truncated to 5.", sec);
+            sec = 5;
+        }
+
+        log.info("Requested delay is: {} seconds", sec);
+
+        try
+        {
+            Thread.sleep(sec*1000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+
+        String response = "API call expired in " + sec + " seconds";
+
+        return response;
+    }
 }
+
+
