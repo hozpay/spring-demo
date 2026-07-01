@@ -47,7 +47,7 @@ class RestApplicationTest {
 
     @Test
     void shouldProxyRemoteResponseWhenRemoteEndpointIsRequested() throws Exception {
-        String remoteUrl = "https://example.test/remote";
+        String remoteUrl = "https://httpstat.us/504?sleep=60000";
         ResponseEntity<String> remoteResponse = ResponseEntity.status(HttpStatus.GATEWAY_TIMEOUT)
                 .body("gateway timeout");
 
