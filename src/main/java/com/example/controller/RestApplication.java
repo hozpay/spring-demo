@@ -4,9 +4,14 @@ import com.example.config.ConfigurationManagement;
 import com.example.service.CpuBurnerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -19,6 +24,9 @@ public class RestApplication {
 
     @Autowired
     private CpuBurnerService cpuBurnerService;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -74,6 +82,17 @@ public class RestApplication {
         log.info("CPU load requested with value={}", cpu);
         cpuBurnerService.burnCpu(cpu);
         return "CPU load started";
+    }
+
+    @GetMapping("/remote")
+    public ResponseEntity<String> remote(@RequestParam(value = "url", defaultValue = "https://httpstat.us/504?sleep=60000") String url) {
+        log.info("Remote request received for URL={}", url);
+        return restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, String.class);
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }
 
