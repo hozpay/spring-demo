@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.config.ConfigurationManagement;
+import com.example.service.CpuBurnerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,9 @@ import java.util.concurrent.atomic.AtomicLong;
 public class RestApplication {
     @Autowired
     private ConfigurationManagement config;
+
+    @Autowired
+    private CpuBurnerService cpuBurnerService;
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -63,6 +67,13 @@ public class RestApplication {
         String response = "API call expired in " + sec + " seconds";
 
         return response;
+    }
+
+    @GetMapping("/cpuload")
+    public String cpuLoad(@RequestParam(value = "cpu", defaultValue = "100") int cpu) {
+        log.info("CPU load requested with value={}", cpu);
+        cpuBurnerService.burnCpu(cpu);
+        return "CPU load started";
     }
 }
 
